@@ -31,9 +31,10 @@ public class QueueBrowserDemo {
 			MessageProducer producer = session.createProducer(queue);
 			TextMessage message = session.createTextMessage("I am the first of me");
 			producer.send(message);
+			System.out.println("Message Sent: "+ message.getText());
 			TextMessage message2 = session.createTextMessage("I am the second destiny");
 			producer.send(message2);
-			System.out.println("Message Sent: "+ message.getText());
+			
 			System.out.println("Message Sent: "+ message2.getText());
 			
 			QueueBrowser browser = session.createBrowser(queue);
@@ -48,6 +49,8 @@ public class QueueBrowserDemo {
 			MessageConsumer consumer = session.createConsumer(queue);
 			connection.start();
 			TextMessage messageR = (TextMessage) consumer.receive(5000);
+			System.out.println("Message Received: "+ messageR.getText());
+			messageR = (TextMessage) consumer.receive(5000);
 			System.out.println("Message Received: "+ messageR.getText());
 			messageR = (TextMessage) consumer.receive(5000);
 			System.out.println("Message Received: "+ messageR.getText());
