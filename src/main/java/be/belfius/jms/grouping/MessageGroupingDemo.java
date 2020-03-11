@@ -43,6 +43,7 @@ public class MessageGroupingDemo {
 				messages[i].setStringProperty("JMSXGroupID", "Group-0");
 				producer.send(queue, messages[i]);
 			}
+			jmsContext.createProducer().send(queue, "Extra message");
 			Thread.sleep(2000);
 			System.out.println("SLEEP");
 			Thread.sleep(2000);

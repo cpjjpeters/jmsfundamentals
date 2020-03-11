@@ -19,7 +19,7 @@ class MyListener implements MessageListener{
 		public void onMessage(Message message) {
 			TextMessage textMessage = (TextMessage) message;
 			try {
-				System.out.println(""+textMessage.getText());
+				System.out.println("MyListener reveived: "+textMessage.getText());
 				System.out.println("Listener name:"+name);
 				receivedMessages.put(textMessage.getText(), name);
 			} catch (JMSException e) {
